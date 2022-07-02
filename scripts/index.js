@@ -3,17 +3,21 @@ const scoreTables = document.querySelectorAll(".score-text");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-const engine = new Engine(canvas, 'rgb(200, 255, 255)');
-const cube = new Rectangle(50, 50, 50, 50, 'lime');
+const matrix = new Matrix(canvas, 'rgb(200, 255, 255)', 10, 20);
+matrix.setConfig(40, 30, 30);
 
-engine.addObject(cube);
+matrix.addCube(0, 0);
+matrix.addCube(3, 5);
+matrix.addCube(9, 9);
+matrix.addCube(8, 9);
+matrix.addCube(5, 5);
 
-engine.start();
+matrix.start();
 let animation_frame;
 function loop()
 {
     animation_frame = requestAnimationFrame(loop);
-    engine.render();
+    matrix.render();
 }
 
 loop();
